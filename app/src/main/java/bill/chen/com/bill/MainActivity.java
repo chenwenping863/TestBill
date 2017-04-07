@@ -27,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
             new ItemData(currentTime, R.mipmap.icon2, "name0"),
             new ItemData(currentTime, R.mipmap.icon3, "name0"),
 
+            /*new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon6, "name1"),
+            new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon7, "name2"),
+            new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon1, "name3"),
+
+            new ItemData(currentTime - 2 * ONE_DAY_TIME_MILLIS, R.mipmap.icon4, "name6"),
+            new ItemData(currentTime - 2 * ONE_DAY_TIME_MILLIS, R.mipmap.icon6, "name8"),
+
+            new ItemData(currentTime - 3 * ONE_DAY_TIME_MILLIS, R.mipmap.icon2, "name14"),
+            new ItemData(currentTime - 3 * ONE_DAY_TIME_MILLIS, R.mipmap.icon3, "name15"),
+
+            new ItemData(currentTime - 5 * ONE_DAY_TIME_MILLIS, R.mipmap.icon4, "name11")*/
             new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon6, "name1"),
             new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon7, "name2"),
             new ItemData(currentTime - ONE_DAY_TIME_MILLIS, R.mipmap.icon1, "name3"),
@@ -129,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private void addData() {
 
         List<ItemData> itemModels = Arrays.asList(itemModelArray);
+
         mAdapter.getDelegate().setData(ItemFormatUtil.assembleItemDatas(itemModels));
     }
 }

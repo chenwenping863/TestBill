@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -90,11 +90,11 @@ public class LineAdapter extends BaseAdapter
                         .inflate(R.layout.layout_time_line_item, parent, false);
                 holder = new TimelineViewHolder();
                 holder.tvTag =
-                        (TextView) convertView.findViewById(R.id.interview_date_tag_tv_tag);
+                        (TextView) convertView.findViewById(R.id.interview_date_tag_iv_type);
                 holder.ivType =
-                        (ImageView) convertView.findViewById(R.id.interview_date_tag_iv_type);
+                        (TextView) convertView.findViewById(R.id.interview_date_tag_tv_tag);
                 holder.llParent =
-                        (LinearLayout) convertView.findViewById(R.id.interview_date_tag_ll_parent);
+                        (RelativeLayout) convertView.findViewById(R.id.interview_date_tag_ll_parent);
                 convertView.setTag(holder);
             } else {
                 holder = (TimelineViewHolder) convertView.getTag();
@@ -169,8 +169,8 @@ public class LineAdapter extends BaseAdapter
 
     private static class TimelineViewHolder {
         TextView tvTag;
-        ImageView ivType;
-        LinearLayout llParent;
+        TextView ivType;
+        RelativeLayout llParent;
     }
 
     private static class ItemHolder {
