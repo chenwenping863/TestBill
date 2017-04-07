@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PinnedSectionListViewDemo</string>
 
-    <string name="today">（今日）</string>
-    <string name="tomorrow">（明日）</string>
+    <string name="today">今天</string>
+    <string name="tomorrow">昨天</string>
     <string name="monday">（周一）</string>
     <string name="tuesday">（周二）</string>
     <string name="wednesday">（周三）</string>
@@ -15,4 +15,13 @@
     <string name="string_month_format">%02d月</string>
     <string name="string_month_format1">%d月</string>
     <string name="string_day_format">%d日</string>
+
+
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">正在刷新…</string>
+    <string name="not_updated_yet">暂未更新过</string>
+    <string name="updated_at">上次更新于%1$s前</string>
+    <string name="updated_just_now">刚刚更新</string>
+    <string name="time_error">时间有问题</string>
 </resources>

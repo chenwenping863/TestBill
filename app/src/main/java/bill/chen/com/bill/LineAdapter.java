@@ -123,7 +123,7 @@ public class LineAdapter extends BaseAdapter
     }
 
 
-    private void bindTimeLine(TimelineViewHolder holder, LineData timelineModel) {
+    private void bindTimeLine(TimelineViewHolder holder, final LineData timelineModel) {
         holder.ivType.setEnabled(true);
         holder.ivType.setActivated(false);
         holder.tvTag.setVisibility(View.VISIBLE);
@@ -131,17 +131,34 @@ public class LineAdapter extends BaseAdapter
         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         if (timelineModel.getType() == LineData.TYPE_TOP) {
             holder.ivType.setActivated(true);
-        } else if (timelineModel.getType() == LineData.TYPE_ITEM_JOINT) {
+        } else if (timelineModel.getType() == LineData.TYPE_ITEM_JOINT) {//liebiao
             holder.ivType.setEnabled(false);
             holder.tvTag.setVisibility(View.GONE);
             lp.height = mContext.getResources()
                     .getDimensionPixelSize(R.dimen.default_time_line_joint_height);
         }
         holder.tvTag.setText(timelineModel.formatToString(mContext));
+        holder.tvTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListItemClickListener.headerOnClick(timelineModel);
+            }
+        });
     }
 
-    private void bindItem(ItemHolder holder, ItemData itemModel) {
+    /**
+     * list数据设置
+     * @param holder
+     * @param itemModel
+     */
+    private void bindItem(ItemHolder holder, final ItemData itemModel) {
         holder.ivAvatar.setImageResource(itemModel.avatarRes);
+        holder.ivAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListItemClickListener.itemOnClick(itemModel);
+            }
+        });
         holder.tvName.setText(itemModel.name);
     }
 
@@ -197,5 +214,18 @@ public class LineAdapter extends BaseAdapter
             notifyDataSetChanged();
         }
     }
+
+
+    public interface ListItemClickListener {
+        void itemOnClick(ItemData itemModel);
+        void headerOnClick(LineData timelineModel);
+    }
+
+    private ListItemClickListener mListItemClickListener;
+
+    public void setListItemClickListener(ListItemClickListener listItemClickListener) {
+        this.mListItemClickListener = listItemClickListener;
+    }
+
 }
 

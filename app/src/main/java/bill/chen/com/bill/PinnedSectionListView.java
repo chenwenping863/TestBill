@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.SectionIndexer;
 
 public class PinnedSectionListView extends ListView {
+
     public interface PinnedSectionListAdapter {
         boolean isItemViewTypePinned(int viewType);
     }
@@ -469,6 +470,8 @@ public class PinnedSectionListView extends ListView {
     }
 
     private boolean performPinnedItemClick() {
+
+
         if (mPinnedSection == null) {
             return false;
         }

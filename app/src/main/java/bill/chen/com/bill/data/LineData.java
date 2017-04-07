@@ -13,8 +13,8 @@ import bill.chen.com.bill.utils.DateUtil;
 
 public class LineData {
 
-    public static final int TYPE_TOP = 1;
-    public static final int TYPE_ITEM_JOINT = 2;
+    public static final int TYPE_TOP = 1;//title
+    public static final int TYPE_ITEM_JOINT = 2;//列表
     public static final int TYPE_DAY_JOINT = 3;
 
     private Calendar mCalendar;
@@ -50,19 +50,21 @@ public class LineData {
         String dayOfMonth = String.format(context.getString(R.string.string_day_format),
                 mCalendar.get(Calendar.DAY_OF_MONTH));
 
-        String date = month + dayOfMonth;
+        //String date = month + dayOfMonth;
+        String date = "";
 
         Calendar calendar = Calendar.getInstance();
         if (DateUtil.isSampleDay(calendar, mCalendar)) {
             date += context.getString(R.string.today);
             return date;
         }
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
         if (DateUtil.isSampleDay(calendar, mCalendar)) {
             date += context.getString(R.string.tomorrow);
             return date;
         }
-        date += DateUtil.formatDayOfWeek(context, mCalendar.get(Calendar.DAY_OF_WEEK));
+        date = month + "/" + dayOfMonth;
+       // date += DateUtil.formatDayOfWeek(context, mCalendar.get(Calendar.DAY_OF_WEEK));
         return date;
     }
 
